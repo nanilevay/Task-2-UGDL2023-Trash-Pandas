@@ -354,7 +354,7 @@
 -r:"Library/Bee/artifacts/1300b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/Scripts/GameManagerScript.cs"
 "Assets/Scripts/Player.cs"
-"Assets/Scripts/Player1.cs"
+"Assets/Scripts/SectionDestroy.cs"
 "Assets/TutorialInfo/Scripts/Readme.cs"
 -langversion:9.0
 

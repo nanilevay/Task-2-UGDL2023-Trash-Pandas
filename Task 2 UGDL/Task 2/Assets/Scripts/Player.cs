@@ -4,64 +4,61 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private float slideSpeed;
+
+    [SerializeField] private float limitRight;
+    [SerializeField] private float limitLeft;
+
     [SerializeField] private bool jumpAtk;
 
-    [SerializeField] private GameObject player;
-
-    //private Vector2 startTouchPos;
-    //private Vector2 endTouchPos;
-    private Vector2 movement;
-
-    private Rigidbody rb;
-
-    private void Start()
-    {
-        player = this.gameObject;
-        rb = GetComponent<Rigidbody>();
-        movement.x = Input.GetAxisRaw("Horizontal");
-    }
+    private Vector2 startTouchPos;
+    private Vector2 endTouchPos;
 
     private void Update()
     {
         transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed, Space.World);
 
-        //Swipe();
+        Swipe();
     }
 
-   //private void Swipe()
-   // {
-   //     if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-   //     {
-   //         startTouchPos = Input.GetTouch(0).position;
-   //         Debug.Log("Start");
-   //     }
+    private void Swipe()
+    {
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+            startTouchPos = Input.GetTouch(0).position;
+            Debug.Log("Start");
+        }
 
-   //     if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
-   //     {
-   //         endTouchPos = Input.GetTouch(0).position;
-   //         Debug.Log("End");
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+        {
+            endTouchPos = Input.GetTouch(0).position;
+            Debug.Log("End");
 
-   //         if (endTouchPos.x < startTouchPos.x)
-   //         {
-   //             Debug.Log("MoveR");
-   //             MoveRight();
-   //         }
+            if (endTouchPos.x < startTouchPos.x)
+            {
+                Debug.Log("MoveR");
+                MoveRight();
+            }
 
-   //         if (endTouchPos.x > startTouchPos.x)
-   //         {
-   //             Debug.Log("MoveL");
-   //             MoveLeft();
-   //         }
-   //     }
-    //}
+            else if (endTouchPos.x > startTouchPos.x)
+            {
+                Debug.Log("MoveL");
+                MoveLeft();
+            }
+
+            else
+                Debug.Log("Tap");
+        }
+    }
 
     private void MoveLeft()
     {
-        player.transform.Translate(player.transform.position.x + 2 * Time.deltaTime * slideSpeed, 0, 0);
+        if(this.transform.position.x > limitLeft)
+            transform.Translate(Vector3.left * Time.deltaTime * slideSpeed, Space.World);
     }
 
     private void MoveRight()
     {
-        player.transform.Translate(player.transform.position.x - 2 * Time.deltaTime * slideSpeed, 0, 0);
+        if (this.transform.position.x > limitRight)
+            transform.Translate(Vector3.left * Time.deltaTime * slideSpeed, Space.World -1);
     }
 }
