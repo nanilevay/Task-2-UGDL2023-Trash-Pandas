@@ -6,7 +6,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638180372470502663
+      ticks: 638182501572569963
     m_Hash: 3458619208
   m_LockFileStatus:
     m_FilePath: C:/Users/joana/Desktop/Task-2-UGDL2023-Trash-Pandas/Task 2 UGDL/Task
@@ -15,7 +15,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638180372612387406
+      ticks: 638182501572640220
     m_Hash: 3199334231
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
@@ -798,6 +798,7 @@ m_ResolvedPackages:
     - 1.6.2
     - 1.6.3
     - 1.6.4
+    - 1.6.5
     - 1.7.0-pre.1
     - 1.7.0-pre.2
     - 1.7.0
@@ -886,6 +887,7 @@ m_ResolvedPackages:
   versions:
     all:
     - 1.0.0
+    - 3.0.0-exp.1
     compatible:
     - 1.0.0
     verified: 1.0.0
@@ -2984,9 +2986,11 @@ m_ResolvedPackages:
     - 3.0.1
     - 3.0.2
     - 3.1.0
+    - 3.2.0
     compatible:
     - 3.0.2
     - 3.1.0
+    - 3.2.0
     verified: 3.0.2
   dependencies: []
   resolvedDependencies: []
