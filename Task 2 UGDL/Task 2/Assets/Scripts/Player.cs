@@ -8,7 +8,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float limitRight;
     [SerializeField] private float limitLeft;
 
-    [SerializeField] private bool jumpAtk;
+    [SerializeField] private bool playerAtk;
+    [SerializeField] private bool enemyDetect;
 
     private Vector2 startTouchPos;
     private Vector2 endTouchPos;
@@ -46,7 +47,19 @@ public class Player : MonoBehaviour
             }
 
             else
+            {
                 Debug.Log("Tap");
+
+                if (enemyDetect == true)
+                {
+                    //animator to do "slide atk"
+                }
+
+                playerAtk = true;
+
+            }
+
+            
         }
     }
 
@@ -54,11 +67,39 @@ public class Player : MonoBehaviour
     {
         if(this.transform.position.x > limitLeft)
             transform.Translate(Vector3.left * Time.deltaTime * slideSpeed, Space.World);
+
+        if (enemyDetect == true)
+        {
+            //animator to do "jump animation"
+        }
+
+        playerAtk = true;
     }
 
     private void MoveRight()
     {
         if (this.transform.position.x > limitRight)
             transform.Translate(Vector3.left * Time.deltaTime * slideSpeed, Space.World -1);
+
+        if (enemyDetect == true)
+        {
+            //animator to do "jump animation"
+        }
+
+        playerAtk = true;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.gameObject.tag == "Enemy")
+        {
+            enemyDetect = true;
+
+            if(playerAtk)
+            {
+                Destroy(other.gameObject);
+                Debug.Log("Destroy");
+            }
+        }
     }
 }
