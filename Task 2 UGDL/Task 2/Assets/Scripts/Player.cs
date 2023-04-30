@@ -14,9 +14,6 @@ public class Player : MonoBehaviour
     [SerializeField] private bool playerAtk;
     [SerializeField] private bool enemyDetect;
 
-    //Toggle on Unity Insp to try the diff ones without going through the code
-    [SerializeField] private bool multipleTap;
-
     //Touch controlls
     [SerializeField] private bool isTouching;
     private Vector2 startTouchPos;
@@ -40,7 +37,6 @@ public class Player : MonoBehaviour
     {
         //Takes care of all touch mechanics
 
-        Touch touch = Input.GetTouch(0);
         //Detects start of touch
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
@@ -72,28 +68,22 @@ public class Player : MonoBehaviour
                     MoveLeft();
                 }
 
-
-                if (multipleTap)
+                //Sees if it was tapped 2 times
+                if (Input.GetTouch(0).tapCount == 2)
                 {
-                    //Sees if it was tapped 2 times
-                    if (Input.GetTouch(0).tapCount == 2)
-                    {
-                        TapAtk();
-                    }
+                    TapAtk();
                 }
 
                 //Hold ATK  (NOT WORKING (for some reason =_=))
                 //else
                 //{
                 //    //Sees if it was a tap (stationary = is the tap thingy)
-                //    if (touch.phase == TouchPhase.Stationary)
+                //    if (Input.GetTouch(0).phase == TouchPhase.Stationary)
                 //    {
                 //        TapAtk();
                 //    }
                 //}
             }
-
-            isTouching = false;
         }
     }
 
@@ -110,6 +100,8 @@ public class Player : MonoBehaviour
         {
             playerAtk = true;
         }
+
+        isTouching = false;
     }
 
     private void MoveRight()
@@ -123,29 +115,31 @@ public class Player : MonoBehaviour
         {
             playerAtk = true;
         }
+
+        isTouching = false;
     }
 
     //Takes care of the ATK
     private void TapAtk()
     {
-        //"Jump animation"
-
 
         //If the tap was made in the Left side of screen
-        if (Input.touches[0].position.x < Screen.width / 2)
+        if (Input.touches[0].position.x < Screen.width / 3)
         {
+            //"Jump animation"
             transform.Translate(0, 2, 0 * Time.deltaTime * slideSpeed, Space.World);
+
             MoveLeft();
 
             Debug.Log("MoveL");
         }
 
-
         //If the tap was made in the Right side of screen
-        if (Input.touches[0].position.x > Screen.width / 2)
+        if (Input.touches[0].position.x > Screen.width / 3)
         {
-
+            //"Jump animation"
             transform.Translate(0, 2, 0 * Time.deltaTime * slideSpeed, Space.World);
+
             MoveRight();
 
             Debug.Log("MoveR");

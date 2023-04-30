@@ -1,8 +1,11 @@
 ScriptsOnlyBuild:
   usedScripts:
+    Assembly-CSharp-Editor.dll:
+    - ReadmeEditor
     Assembly-CSharp.dll:
     - GameManagerScript
     - Player
+    - Readme
     - SectionDestroy
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
@@ -48,15 +51,15 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 2518}
+      Script: {instanceID: 2520}
     - Class: 114
-      Script: {instanceID: 2580}
+      Script: {instanceID: 2582}
     - Class: 114
-      Script: {instanceID: 4050}
+      Script: {instanceID: 4052}
     - Class: 114
-      Script: {instanceID: 5804}
+      Script: {instanceID: 5806}
     - Class: 114
-      Script: {instanceID: 6188}
+      Script: {instanceID: 6190}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 136
@@ -620,7 +623,7 @@ ScriptsOnlyBuild:
     className: AspectRatioFitter
   - hash:
       serializedVersion: 2
-      Hash: 33dc101071ad7b6f08a8c171b0e2870d
+      Hash: 679fee1cab73acf2cf96ec2d2617ba21
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
