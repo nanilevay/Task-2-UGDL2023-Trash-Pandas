@@ -29,21 +29,18 @@ public class Player : MonoBehaviour
 
         Swipe();
 
-        //FOR TESTING
-        if (Input.GetKeyUp("f"))
-        {
-            if (this.transform.position.x > limitLeft)
-            {
-                Debug.Log("Here");
-                transform.Translate(-2, 0, 0 * Time.deltaTime * slideSpeed, Space.World);
-            }
-        }
+        ////FOR TESTING
+        //if (Input.GetKeyUp("f"))
+        //{
+
+        //}
     }
 
     private void Swipe()
     {
         //Takes care of all touch mechanics
 
+        Touch touch = Input.GetTouch(0);
         //Detects start of touch
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
@@ -76,19 +73,20 @@ public class Player : MonoBehaviour
                 }
 
 
-                //if (multipleTap)
-                //{
-                //    //Sees if it was tapped 2 times
-                //    if (Input.GetTouch(0).tapCount == 2)
-                //    {
-                //        TapAtk();
-                //    }
-                //}
+                if (multipleTap)
+                {
+                    //Sees if it was tapped 2 times
+                    if (Input.GetTouch(0).tapCount == 2)
+                    {
+                        TapAtk();
+                    }
+                }
 
+                //Hold ATK  (NOT WORKING (for some reason =_=))
                 //else
                 //{
                 //    //Sees if it was a tap (stationary = is the tap thingy)
-                //    if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Stationary)
+                //    if (touch.phase == TouchPhase.Stationary)
                 //    {
                 //        TapAtk();
                 //    }
@@ -128,40 +126,31 @@ public class Player : MonoBehaviour
     }
 
     //Takes care of the ATK
-    //private void TapAtk()
-    //{
-    //    Debug.Log("Tap&Hold");
-
-    //    //"Jump animation"
-    //    transform.Translate(0, 2, 0 * Time.deltaTime * slideSpeed, Space.World);
-
-    //    //If the tap was made in the Left side of screen
-    //    if (Input.touches[0].position.x < Screen.width / 3)
-    //    {
-    //        if (Input.GetTouch(0).phase == TouchPhase.Began)
-    //        {
-    //            Debug.Log("MoveL");
-    //            MoveLeft();
-    //        }
-    //    }
+    private void TapAtk()
+    {
+        //"Jump animation"
 
 
-    //    //If the tap was made in the Right side of screen
-    //    if (Input.touches[0].position.x > Screen.width / 3)
-    //    {
-    //        if (Input.GetTouch(0).phase == TouchPhase.Began)
-    //        {
-    //            Debug.Log("MoveR");
-    //            MoveRight();
-    //        }
-    //    }
+        //If the tap was made in the Left side of screen
+        if (Input.touches[0].position.x < Screen.width / 2)
+        {
+            transform.Translate(0, 2, 0 * Time.deltaTime * slideSpeed, Space.World);
+            MoveLeft();
 
-    //    ////If the tap was made in the middle (ifk if it'll be used)
-    //    //else
-    //    //{
-    //    //    //JumpAnim
-    //    //}
-    ////}
+            Debug.Log("MoveL");
+        }
+
+
+        //If the tap was made in the Right side of screen
+        if (Input.touches[0].position.x > Screen.width / 2)
+        {
+
+            transform.Translate(0, 2, 0 * Time.deltaTime * slideSpeed, Space.World);
+            MoveRight();
+
+            Debug.Log("MoveR");
+        }
+    }
 
     //Checks Enemy collisions using "Enemy" tag
     private void OnTriggerStay(Collider other)
@@ -185,4 +174,5 @@ public class Player : MonoBehaviour
             }
         }
     }
+
 }

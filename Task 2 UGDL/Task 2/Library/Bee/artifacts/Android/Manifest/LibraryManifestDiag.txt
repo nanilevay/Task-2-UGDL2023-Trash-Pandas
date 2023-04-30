@@ -19,6 +19,8 @@ android.permission.ACCESS_NETWORK_STATE was added because:
 	UnityEngine.Application::get_internetReachability was present in:
 		Unity.Services.Core.Telemetry-FeaturesChecked.txt
 android.hardware.touchscreen.multitouch, android.hardware.touchscreen.multitouch.distinct were enabled because:
+	UnityEngine.Input::get_touches was present in:
+		Assembly-CSharp-FeaturesChecked.txt
 	UnityEngine.Input::GetTouch was present in:
 		Assembly-CSharp-FeaturesChecked.txt
 		UnityEngine.UI-FeaturesChecked.txt
