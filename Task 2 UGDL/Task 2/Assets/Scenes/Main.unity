@@ -259,6 +259,8 @@ MonoBehaviour:
   limitLeft: -2
   playerAtk: 0
   enemyDetect: 0
+  multipleTap: 0
+  isTouching: 0
 --- !u!65 &234539974
 BoxCollider:
   m_ObjectHideFlags: 0

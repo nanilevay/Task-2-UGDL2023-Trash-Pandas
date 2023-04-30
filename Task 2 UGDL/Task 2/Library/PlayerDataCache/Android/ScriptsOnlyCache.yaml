@@ -3,6 +3,7 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - GameManagerScript
     - Player
+    - SectionDestroy
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     UnityEditor.TestRunner.dll:
@@ -12,8 +13,6 @@ ScriptsOnlyBuild:
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
-    - UnityEngine.UI.CanvasScaler
-    - UnityEngine.UI.GraphicRaycaster
   serializedClasses: {}
   methodsToPreserve: []
   sceneClasses:
@@ -49,17 +48,15 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 2518}
+      Script: {instanceID: 2524}
     - Class: 114
-      Script: {instanceID: 2580}
+      Script: {instanceID: 2586}
     - Class: 114
-      Script: {instanceID: 2794}
+      Script: {instanceID: 4056}
     - Class: 114
-      Script: {instanceID: 5700}
+      Script: {instanceID: 5810}
     - Class: 114
-      Script: {instanceID: 5802}
-    - Class: 114
-      Script: {instanceID: 6186}
+      Script: {instanceID: 6194}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 136
@@ -67,10 +64,6 @@ ScriptsOnlyBuild:
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -177,7 +170,7 @@ ScriptsOnlyBuild:
     className: UnityOnBecameVisibleMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 751e5bae2a317288c2ab58d66687092b
+      Hash: d9425e528f8a5e8bcc40a00141053448
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManagerScript
@@ -423,6 +416,12 @@ ScriptsOnlyBuild:
     className: VariablesSaver
   - hash:
       serializedVersion: 2
+      Hash: 4bf3fe5a8e67bcb367f1ff9c2aac4f5e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SectionDestroy
+  - hash:
+      serializedVersion: 2
       Hash: 34096a327d779b7c96a3e390f3559143
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -621,7 +620,7 @@ ScriptsOnlyBuild:
     className: AspectRatioFitter
   - hash:
       serializedVersion: 2
-      Hash: 4edc8714d3159b853ff3befb89234b4f
+      Hash: 33dc101071ad7b6f08a8c171b0e2870d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
@@ -865,12 +864,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: b4081214fcdf4c472143f2029d361dbc
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Player1
   platform: 13
   scenePathNames:
   - Assets/Scenes/Main.unity
